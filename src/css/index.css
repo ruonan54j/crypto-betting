@@ -1,44 +1,85 @@
-body{
-    font-family: 'open sans';
-    margin: 0;
+body{ 
+  background: #f0f2f5;
 }
-ul{
-    list-style-type: none;
-    padding-left: 0;
-    display: flex;
+
+.navbar-style{
+  background: #212d40;
 }
-li{
-    padding: 40px;
-    border: 2px solid rgb(30,134,255);
-    margin-right: 5px;
-    border-radius: 10px;
-    cursor: pointer;
+
+.navbar-brand{
+  font-size: 1.6em;
+  color: white;
 }
-li:hover{
-    background-color: rgb(30,134,255);
-    color: white;
+
+.nav-link{
+  color: white;
 }
-li:active{
-    opacity: 0.7;
+
+.align-right{
+  margin-left: 80%;
 }
-*{
-   color: #444444;
+
+h1{
+  font-size: 2em;
 }
-.main-container{
-   padding: 20px;
+
+nav{
+  margin-bottom: 5%;
 }
-.block{
-   display: flex;
-   align-items: center;
+
+.right-card{
+  margin: 0 0 auto 15%;
+  
 }
-.number-selected{
-   background-color: rgb(30,134,255);
-   color: white;
+.card{
+  height: 10em;
+  border: solid 0.5px;
+  border-color:#a6afbd;
+  width: 40%;
+  margin:0 5% 5% 5%;
 }
-.bet-input{
-   padding: 15px;
-   border-radius: 10px;
-   border: 1px solid lightgrey;
-   font-size: 15pt;
-   margin: 0 10px;
+
+.card-selected{
+  border: #b9cceb solid 3px;
+}
+
+.mic-img{
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: center;
+  margin-top: 15%;
+}
+.mic-img{
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: center;
+  margin-top: 15%;
+}
+.mic-img{
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 15%;
+}
+
+.fb-img{
+  margin: 20% 5% auto 5%;
+  max-width: 90%;
+  max-height: 100%;
+}
+
+.am-img{
+  margin: 0% 5% auto 5%;
+  max-width: 90%;
+  max-height: 100%;
+}
+
+.et-img{
+  margin: 0% 5% auto 5%;
+  max-width: 90%;
+  max-height: 100%;
+}
+
+.title{
+  color:#212d40;
+  font-size: 2.5em;
 }

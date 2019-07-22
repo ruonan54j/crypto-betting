@@ -6,10 +6,8 @@ contract StockBet {
    uint256 public sharePrice;
    uint256 public totalBet;
    uint256 public totalTokens_1;
-   uint256 public totalTokens_0;
-   
-   address payable[] public players;
-   
+   uint256 public totalTokens_0; 
+   address payable[] public players; 
    struct Player {
       uint256 direction;
       uint256 num_tokens;
