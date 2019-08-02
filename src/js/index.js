@@ -19,7 +19,7 @@ class App extends React.Component {
        shareToBuy: 0
      };
     
-
+     //initializing web3 connection
      if(typeof web3 != 'undefined'){
       console.log("Using web3 detected from external source like Metamask")
       this.web3 = new Web3(web3.currentProvider)
@@ -28,6 +28,7 @@ class App extends React.Component {
       this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
    }
 
+   //contract ABI
    const MyContract = web3.eth.contract(
     [
       {
@@ -280,6 +281,8 @@ class App extends React.Component {
       }
     ]
    )
+
+   //declare 4 contracts for the 4 different stock companies
    this.state.ContractInstance1 = MyContract.at("0xa19c0ea300d8404c104dabefb94440f8972c7151");
    this.state.ContractInstance2 = MyContract.at("0xc1894bc29f8e7affb5a5c5c304f18eecb4a1fa46");
    this.state.ContractInstance3 = MyContract.at("0xd5296646f505d07c69e21835f7c849b417c58ee2");
@@ -289,12 +292,14 @@ class App extends React.Component {
  
    componentDidMount(){
      this.loadAPI('msft');
-     this.updateState()
+     this.updateState();
       setInterval(this.updateState.bind(this), 10e3);
    }
    
+   //closes betting portal, prevents more beters
    closebtn=()=>{
     var contract;
+    //switch contract instance
     if(this.state.currentStockName === 'Microsoft'){
       contract = this.state.ContractInstance1;
     }
@@ -320,6 +325,7 @@ class App extends React.Component {
     })
    }
 
+   //distributes prizes
    distributebtn=()=>{
     this.state.ContractInstance1.getTimeDiff((err, result) => {
       
@@ -337,6 +343,7 @@ class App extends React.Component {
 
 
 
+  //pulls data from contract
    updateState(){
   
     var contract;
@@ -383,11 +390,13 @@ class App extends React.Component {
      })
     }
 
+  //handle on change updates for shares to buy
 changeBuy(e){
   this.state.shareToBuy=document.getElementById("share-input").value;
   document.getElementById('total-cost').innerHTML = this.state.shareToBuy*this.state.sharePrice+0.01 + " ETH";
 }
 
+//makes transaction to metamask
 payFee = () => {
   var dir =document.getElementById("bet-select").value; 
   var numBought = document.getElementById("share-input").value;
@@ -413,6 +422,7 @@ payFee = () => {
   
 }
 
+//loads stock information
    loadAPI= (symbol) => {
      var request = new XMLHttpRequest();
      
@@ -444,6 +454,7 @@ payFee = () => {
      request.send();
    }
  
+   //selected stock company
    cardSelected(val) {
       
      if (val === "microsoft") {
